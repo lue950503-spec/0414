@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>時光記憶圖譜 - 程式種子</title>
+  <!-- 載入 p5.js 與 p5.sound.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #051525;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    /* 左側 p5.js 畫布區域 */
+    #canvas-container {
+      width: 40%;
+      height: 100%;
+      box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+      z-index: 10;
+    }
+    /* 右側 iframe 作品展示區 */
+    #iframe-container {
+      width: 60%;
+      height: 100%;
+      position: relative;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background-color: #ffffff;
+    }
+    /* 預設提示文字 (當 iframe 沒有內容時顯示) */
+    .placeholder-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #888;
+      font-size: 24px;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- p5.js 將會把 canvas 放在這個 div 裡面 -->
+  <div id="canvas-container"></div>
+
+  <!-- 用來顯示每一週作業的 iframe -->
+  <div id="iframe-container">
+    <div class="placeholder-text">請點擊左側時光種子以載入作品</div>
+    <iframe id="portfolio-frame" src=""></iframe>
+  </div>
+
+  <!-- 載入我們寫的 p5.js 腳本 -->
+  <script src="sketch.js"></script>
+</body>
+</html>
